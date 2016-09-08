@@ -56,16 +56,8 @@ python do_bitbakeTask() {
     pythonFunction()
 }
 
-#addtask bye
-#python do_bye() {
-#    bb.warn("BYE")
-#}
-
-#addtask hello
-#do_hello() {
-#    echo "Hello" 
-#    echo ${@bb.plain("HELLO")}
-#}
-#addtask hello before do_bye
-
+python () {
+    if d.getVar('SOMEVAR', True) == 'value':
+        d.setVar('ANOTHERVAR', 'value2')
+}
 
